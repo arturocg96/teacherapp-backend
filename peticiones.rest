@@ -1,0 +1,227 @@
+@url = http://localhost:3000/api
+
+#####################
+###### Usuarios #####
+#####################
+
+# Obtener todos los usuarios
+GET {{url}}/usuarios
+
+#####################
+##### Profesores ####
+#####################
+
+## Listar Profesores
+GET {{url}}/profesores
+Content-Type: application/json
+
+# Obtener todas los profesores con materias
+###
+GET {{url}}/profesores/profesor-materias
+Content-Type: application/json
+
+###
+# Actualizar sobre mi de un profesor
+PATCH {{url}}/profesores/sobremi/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo1LCJ1c3VhcmlvX3JvbCI6ImFsdW1ubyIsImlhdCI6MTczMjM0OTQyNn0.bADICpCtDLzSK6mmKWcabKrZ1i7undzpZycxpju0-84
+
+{
+  "sobre_mi": "Soy un profesor de prueba"
+}
+
+###
+
+# Obtener un profesor por ID
+GET {{url}}/profesores/54
+Content-Type: application/json
+
+#####################
+###### Alumnos ######
+#####################
+
+## Listar Alumnos
+GET {{url}}/alumnos
+Content-Type: application/json
+
+###
+
+# Obtener un alumno por ID
+GET {{url}}/alumnos/2
+Content-Type: application/json
+
+
+#####################
+###### Materias #####
+#####################
+
+# Obtener todas las materias
+GET {{url}}/materias
+Content-Type: application/json
+
+
+
+# Obtener materias asignadas a un profesor por ID de profesor
+GET {{url}}/materias/profesor-materias/1
+Content-Type: application/json
+
+#####################
+###### Admin ########
+#####################
+
+# Activar o desactivar un usuario
+PUT {{url}}/usuarios/activar/2
+Content-Type: application/json
+Authorization: 
+
+{
+  "activo": false
+}
+
+###
+# Validar o desvalidar un profesor
+PUT {{url}}/profesores/validar/1
+Content-Type: application/json
+Authorization: 
+
+{
+  "validado": true
+}
+
+###
+# Registrar un administrador
+POST {{url}}/usuarios/registrarAdmin
+Content-Type: application/json
+
+{
+  "nombre": "Usuario3",
+  "apellidos": "Administrador",
+  "email": "carrascogonzalezarturo@gmail.com",
+  "password": "Admin123*",
+  "activo": 1
+}
+
+#########################
+###### Opiniones ########
+#########################
+
+###
+# Obtener todas las opiniones
+GET {{url}}/opiniones
+
+###
+# Obtener opiniones por ids: idAlumno, idProfesor
+GET {{url}}/opiniones/single/2/1
+
+###
+# Obtener opiniones por profesor
+GET {{url}}/opiniones/profesor/1
+
+###
+# Obtener opiniones por alumno
+GET {{url}}/opiniones/estudiante/2
+
+###
+# Insertar opinión
+POST {{url}}/opiniones
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo1LCJ1c3VhcmlvX3JvbCI6ImFsdW1ubyIsImlhdCI6MTczMjM0OTQyNn0.bADICpCtDLzSK6mmKWcabKrZ1i7undzpZycxpju0-84
+
+{
+  "profesor_id": 4,
+  "puntuacion": 5,
+  "comentario": "Excelente profesor. Gran experiencia"
+}
+
+###
+# Actualizar opinión
+PUT {{url}}/opiniones/single/5/4
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo1LCJ1c3VhcmlvX3JvbCI6ImFsdW1ubyIsImlhdCI6MTczMjM0OTQyNn0.bADICpCtDLzSK6mmKWcabKrZ1i7undzpZycxpju0-84
+
+{
+  "profesor_id": 4,
+  "puntuacion": 5,
+  "comentario": "Excelente profesor. Genial experiencia"
+}
+
+###
+# Eliminar opinión
+DELETE {{url}}/opiniones/single/5/4
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo1LCJ1c3VhcmlvX3JvbCI6ImFsdW1ubyIsImlhdCI6MTczMjM0OTQyNn0.bADICpCtDLzSK6mmKWcabKrZ1i7undzpZycxpju0-84
+
+#############################
+###### Inscripciones ########
+#############################
+
+###
+# Obtener todas las inscripciones
+GET {{url}}/inscripciones
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo1LCJ1c3VhcmlvX3JvbCI6ImFsdW1ubyIsImlhdCI6MTczMjM0OTQyNn0.bADICpCtDLzSK6mmKWcabKrZ1i7undzpZycxpju0-84
+
+###
+# Obtener inscripciones por alumno
+GET {{url}}/inscripciones/estudiante/2
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo1LCJ1c3VhcmlvX3JvbCI6ImFsdW1ubyIsImlhdCI6MTczMjM0OTQyNn0.bADICpCtDLzSK6mmKWcabKrZ1i7undzpZycxpju0-84
+
+###
+# Obtener inscripciones por profesor
+GET {{url}}/inscripciones/profesor/4
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo1LCJ1c3VhcmlvX3JvbCI6ImFsdW1ubyIsImlhdCI6MTczMjM0OTQyNn0.bADICpCtDLzSK6mmKWcabKrZ1i7undzpZycxpju0-84
+
+###
+# Insertar inscripción
+POST {{url}}/inscripciones/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo1LCJ1c3VhcmlvX3JvbCI6ImFsdW1ubyIsImlhdCI6MTczMjM0OTQyNn0.bADICpCtDLzSK6mmKWcabKrZ1i7undzpZycxpju0-84
+
+###
+# Cerrar inscripcion
+PUT {{url}}/inscripciones/cerrar/5
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjo1LCJ1c3VhcmlvX3JvbCI6ImFsdW1ubyIsImlhdCI6MTczMjM0OTQyNn0.bADICpCtDLzSK6mmKWcabKrZ1i7undzpZycxpju0-84
+
+
+
+#####################
+###### Mensajes ######
+#####################
+
+###
+#obtener mensajes entre 2 usuarios
+GET {{url}}/mensajes/14/2
+
+
+###
+#enviar mensaje
+POST {{url}}/mensajes/enviar
+Content-Type: application/json
+
+{
+  "emisor_id": 7,
+  "destinatario_id": 1,
+  "asunto": "dsf",
+  "contenido": "hola sdfgdffg"  
+}
+
+
+###
+#marcar leido
+patch  {{url}}/mensajes/418
+Content-Type: application/json
+
+{
+  "leido": 1
+}
+
+###
+#obtener mis alumnos por mi id
+GET {{url}}/mensajes/misalumnos/4
+
+###
+#obtener mis profesores por mi id
+GET {{url}}/mensajes/misprofesores/2
