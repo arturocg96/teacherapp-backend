@@ -120,6 +120,21 @@ Nota: Se incluye un archivo example.env en el repositorio con la estructura bás
 
 Esto mostrará las tablas creadas en la base de datos teacherapp.
 
+### Base de Datos Mockeada
+
+En la carpeta `/db-installation` se incluyen los siguientes archivos:
+
+1. **teacherapp-dbstructure.sql**: Contiene la estructura básica de la base de datos.
+2. **teacherapp-dbdata.sql**: Contiene datos iniciales mockeados para pruebas.
+
+#### Información de los datos mockeados
+
+- Todas las contraseñas de los usuarios mockeados son: `Admin123*`.
+- Se incluye un administrador precreado con las siguientes credenciales para poder acceder al panel de control:
+  - **Email**: `arturocarrascogonzalez@gmail.com`
+  - **Contraseña**: `Admin123*`
+
+
 ## 5. Ejecutar el servidor
 
 Para iniciar el servidor en modo desarrollo:
