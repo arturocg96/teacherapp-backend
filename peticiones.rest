@@ -1,4 +1,5 @@
-@url = http://localhost:3000/api
+@url = https://teacherapp-backend.onrender.com/api
+
 
 #####################
 ###### Usuarios #####
