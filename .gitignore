@@ -32,5 +32,3 @@ coverage/
 dist/
 build/
 
-#Directorio de imágenes del perfil de cada usuario
-src/Public/img/profiles/
